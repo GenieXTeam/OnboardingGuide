@@ -29,11 +29,17 @@
 
   html{scroll-behavior:smooth;}
 
+  html{
+    overflow-x:hidden;
+    width:100%;
+  }
+
   body{
     background:var(--bg);
     color:var(--text);
     font-family:'Inter', sans-serif;
     overflow-x:hidden;
+    width:100%;
     position:relative;
   }
 
@@ -204,8 +210,11 @@
     column-gap:70px;
     padding:56px 0;
     z-index:1;
+    min-width:0;
   }
   .step:first-child{ padding-top:8px; }
+
+  .card, .shot{ min-width:0; }
 
   .node{
     position:absolute;
@@ -304,13 +313,15 @@
     border:1px solid var(--border);
     box-shadow:0 24px 60px -20px rgba(0,0,0,.7), 0 0 0 1px rgba(168,116,255,.06);
   }
+  .browser{ min-width:0; }
   .browser .chrome{
     display:flex; align-items:center; gap:6px;
     padding:10px 12px;
     background:#120b1e;
     border-bottom:1px solid var(--border);
+    min-width:0;
   }
-  .browser .chrome span{ width:9px; height:9px; border-radius:50%; background:#3a3050; }
+  .browser .chrome span{ flex:none; width:9px; height:9px; border-radius:50%; background:#3a3050; }
   .browser .chrome .url{
     margin-left:8px;
     font-family:'JetBrains Mono', monospace;
@@ -321,6 +332,10 @@
     padding:3px 10px;
     border-radius:6px;
     flex:1;
+    min-width:0;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
   }
   .browser img{ display:block; width:100%; height:auto; }
 
@@ -332,6 +347,7 @@
     text-align:center;
     padding:80px 24px;
     z-index:1;
+    overflow:hidden;
   }
   .finale .glow-orb{ width:600px; height:600px; background:var(--violet-deep); top:50%; left:50%; transform:translate(-50%,-50%); opacity:.35; }
 
@@ -390,20 +406,39 @@
   }
 
   @media (max-width: 860px){
-    .timeline{ padding:20px 16px 40px; }
-    .rail{ left:24px; transform:none; }
-    .rail .pulse{ left:24px; transform:none; }
-    .node{ left:24px; top:0; width:40px; height:40px; font-size:12.5px; }
+    .hero{ padding:32px 20px; }
+    .hero-meta{ gap:14px 20px; }
+    .glow-orb.a{ width:340px; height:340px; }
+    .glow-orb.b{ width:300px; height:300px; }
+
+    .timeline{ padding:16px 16px 24px; max-width:100%; }
+    .rail{ left:20px; transform:none; }
+    .rail .pulse{ left:20px; transform:none; }
+    .node{ left:20px; top:0; width:36px; height:36px; font-size:12px; box-shadow:0 0 0 5px var(--bg), 0 0 18px rgba(168,116,255,.25); }
     .arrow-link{ display:none; }
-    .chevron-down{ left:24px; transform:none; top:56px; }
+    .chevron-down{ left:20px; transform:none; top:48px; }
     .step{
       grid-template-columns:1fr;
-      padding:0 0 56px 66px;
+      column-gap:0;
+      padding:0 0 48px 58px;
+      width:100%;
     }
+    .step:first-child{ padding-top:0; }
     .step:nth-child(odd) .card, .step:nth-child(even) .card{ grid-column:1; order:1; }
-    .step:nth-child(odd) .shot, .step:nth-child(even) .shot{ grid-column:1; order:2; margin-top:20px; }
-    .card{ padding:26px 22px 24px; }
-    .card h3{ font-size:21px; }
+    .step:nth-child(odd) .shot, .step:nth-child(even) .shot{ grid-column:1; order:2; margin-top:18px; width:100%; }
+    .card{ padding:22px 18px 20px; width:100%; }
+    .card h3{ font-size:20px; }
+    .card p{ font-size:14.5px; }
+    .step-tag{ font-size:10.5px; }
+
+    .finale .glow-orb{ width:360px; height:360px; }
+    .finale h2{ font-size:clamp(26px,7vw,34px); }
+    .finale p{ font-size:15px; }
+  }
+
+  @media (max-width: 420px){
+    .browser .chrome .url{ font-size:9.5px; padding:3px 7px; }
+    .hero-meta{ font-size:12px; }
   }
 
   @media (prefers-reduced-motion: reduce){
