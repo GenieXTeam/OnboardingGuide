@@ -206,8 +206,12 @@
   .benefits-label{
     font-size:12px;
     letter-spacing:.2em;
-    color:var(--magenta);
     margin-bottom:22px;
+    background:linear-gradient(90deg, var(--violet), var(--magenta));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    display:inline-block;
   }
   .benefits-grid{
     display:grid;
@@ -574,7 +578,7 @@
     .benefit-card{ padding:22px 20px 20px; }
     .benefit-stat{ font-size:26px; }
 
-    .hero{ padding:32px 20px; justify-content:flex-start; padding-top:14vh; min-height:100svh; }
+    .hero{ padding:32px 20px 40px; justify-content:flex-start; padding-top:14vh; min-height:0; }
     .hero-meta{ gap:14px 20px; }
     .scroll-cue{ position:static; transform:none; margin-top:48px; }
     .glow-orb.a{ width:340px; height:340px; }
