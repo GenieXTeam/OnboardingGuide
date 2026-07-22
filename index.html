@@ -396,6 +396,23 @@
     line-height:1.65;
   }
 
+  .step-link{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    margin-top:18px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.01em;
+    color:var(--violet);
+    text-decoration:none;
+    border-bottom:1px solid var(--border-strong);
+    padding-bottom:2px;
+    transition:color .2s ease, border-color .2s ease, gap .2s ease;
+  }
+  .step-link:hover{ color:var(--magenta); border-color:var(--magenta); gap:10px; }
+
   .shot{
     opacity:0; transform:translateY(24px);
     transition:opacity .6s ease .08s, transform .6s ease .08s;
@@ -638,6 +655,10 @@
     <div class="card">
       <h3>Create your account</h3>
       <p>Go to the registration page and make sure the account type is set to <b>Genie</b> (not Wisher) before filling in your details.</p>
+      <a class="step-link" href="https://app.geniesx.com/" target="_blank" rel="noopener">
+        Open registration page
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
     </div>
     <div class="shot">
       <div class="browser">
@@ -794,7 +815,7 @@
     </div>
     <h2>You're done - your profile is live</h2>
     <p>From verification to your first gallery, your profile is ready to welcome Wishers and publish content on GeniesX.</p>
-    <a class="cta" href="https://geniesx.com" target="_blank" rel="noopener">
+    <a class="cta" href="https://app.geniesx.com/" target="_blank" rel="noopener">
       Geniesx.com
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
