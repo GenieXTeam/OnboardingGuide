@@ -518,6 +518,55 @@
     position:relative; z-index:1;
   }
 
+  /* FLOATING JOIN BUBBLE */
+  .float-bubble{
+    position:fixed;
+    bottom:28px;
+    right:28px;
+    z-index:900;
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    background:linear-gradient(90deg, var(--violet-deep), var(--magenta));
+    color:#fff;
+    text-decoration:none;
+    font-family:'JetBrains Mono', monospace;
+    font-weight:600;
+    font-size:13.5px;
+    letter-spacing:.02em;
+    padding:14px 22px;
+    border-radius:100px;
+    box-shadow:0 0 0 1px rgba(255,255,255,.1) inset, 0 12px 32px -10px rgba(168,85,247,.7);
+    animation:bubble-float 3.2s ease-in-out infinite;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .float-bubble:hover{
+    transform:translateY(-3px) scale(1.04);
+    box-shadow:0 0 0 1px rgba(255,255,255,.14) inset, 0 16px 40px -10px rgba(255,79,160,.75);
+  }
+  .float-bubble-dot{
+    width:7px; height:7px; border-radius:50%;
+    background:var(--led);
+    box-shadow:0 0 8px var(--led);
+    animation:pulse-dot 1.8s ease-in-out infinite;
+  }
+  @keyframes bubble-float{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-6px); }
+  }
+
+  @media (max-width: 860px){
+    .float-bubble{
+      bottom:18px; right:18px;
+      padding:12px 18px;
+      font-size:12.5px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .float-bubble{ animation:none; }
+  }
+
   @media (max-width: 860px){
     .intro{ padding:14vh 20px 60px; min-height:100svh; }
     .intro p.lead{ margin-bottom:34px; }
@@ -823,6 +872,11 @@
 </section>
 
 <footer>GENIESX &middot; CREATOR ONBOARDING GUIDE</footer>
+
+<a class="float-bubble" href="https://app.geniesx.com/" target="_blank" rel="noopener">
+  <span class="float-bubble-dot"></span>
+  Join now
+</a>
 
 <script>
   // scroll progress bar
